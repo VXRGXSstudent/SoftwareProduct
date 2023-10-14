@@ -1,11 +1,19 @@
 body {
     font-family: Arial, sans-serif;
+    height: 95vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Define um fluxo de coluna */
+    justify-content: flex-start; /* Alinhe a parte superior */
+    align-items: center;
+}
+
+.titulo {
     text-align: center;
 }
 
 h1 {
     color: #8B4513;
-    
 }
 
 
@@ -17,14 +25,23 @@ ul {
 .principal {
     display: grid;
     grid-template-columns: 500px 500px 500px;
-    width: 100vh;
 }
 
 .produto {
-    background-color: red;
+    width: 500px;
+}
+
+.produto1 {
+    background-color: blue;
+    width: 500px;
+}
+
+.produto2 {
+    background-color: brown;
     width: 500px;
 }
 
 footer {
     text-align: center;
 }
+
