@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #8B4513;
+    
+}
+
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.principal {
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    width: 100vh;
+}
+
+.produto {
+    background-color: red;
+    width: 500px;
+}
+
+footer {
+    text-align: center;
+}

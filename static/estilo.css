@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+body {
+	font-family: "Russo One", sans-serif;
+	background-color: #eaedeef5;
+	color: #365fa0;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.container {
+	max-width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #365fa0;
+}
+
+div.container {
+    padding-top: 10px;
+	padding-right: 90px;
+	padding-left: 90px;
+	padding-bottom: 10px;
+
+}
+
+h1 {
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+form {
+	text-align: left;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+input[type="number"], select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	background-color: #365fa0;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #365fa0;
+}
+
+.result {
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 7s infinite alternate;
+	stroke-width: 2;
+	stroke: #365FA0;
+	font-size: 35px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1); }
+	80%  {fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+	100% {
+		fill: rgba(72,138,204,1); stroke: rgba(54,95,160,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: #FFFFFF};
