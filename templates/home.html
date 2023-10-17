@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 </head>
+
 <body>
     <div class="titulo">
         <h1>Venda de Grãos de Café</h1>
@@ -14,66 +15,142 @@
 
     <section class="principal">
         <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Arabica" value="1">
+                <input type="hidden" name="preco" value="30.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
+                        <h3>Grão de Café Arábica - R$ 30,00/kg</h3>
+                        <p class="descricao">Sabor: Suave, com notas de frutas, nozes e chocolate</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_1" data_moeda="USD" data_preco="30.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
 
+        <div class="produto">
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Robusta" value="1">
+                <input type="hidden" name="preco" value="25.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Café Robusta" width="250px">
+                        <h3>Grão de Café Robusta - R$ 25,00/kg</h3>
+                        <p class="descricao">Sabor: Forte e amargo, com notas terrosas</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_2" data_moeda="USD" data_preco="25.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <div class="produto">
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Kona" value="1">
+                <input type="hidden" name="preco" value="60.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Café Kona" width="250px">
+                        <h3>Grão de Café Kona - R$ 60,00/kg</h3>
+                        <p class="descricao">Sabor: Suave, com notas frutadas e florais</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_3" data_moeda="USD" data_preco="60.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <div class="produto">
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Blue" value="1">
+                <input type="hidden" name="preco" value="70.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Blue Mountain" width="250px">
+                        <h3>Grão de Café Blue Mountain - R$ 70,00/kg</h3>
+                        <p class="descricao">Sabor: Suave, com notas de nozes e frutas cítricas</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_4" data_moeda="USD" data_preco="70.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <div class="produto">
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Bourbon" value="1">
+                <input type="hidden" name="preco" value="35.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Café Bourbon" width="250px">
+                        <h3>Grão de Café Bourbon - R$ 35,00/kg</h3>
+                        <p class="descricao">Sabor: Complexo, com notas de caramelo, frutas e especiarias</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_5" data_moeda="USD" data_preco="35.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
         </div>
         <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
-
-        </div>
-        <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
-
-        </div>
-        <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
-
-        </div>
-        <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
-
-        </div>
-        <div class="produto">
-            <ul>
-                <li>
-                    <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                    <h3>Grão de Café Arábica - R$ 20,00/kg<h3>
-                    <p>Origem: Brasil, Sabor: Rico e Frutado</p>
-                </li>
-            </ul>
-
+            <form action="adicionar_carrinho" method="POST">
+                <input type="hidden" name="Geisha" value="1">
+                <input type="hidden" name="preco" value="80.00">
+                <ul>
+                    <li>
+                        <img src="static/coffe.jpg" alt="Grão de Café Geisha" width="250px">
+                        <h3>Grão de Café Geisha - R$ 80,00/kg</h3>
+                        <p class="descricao">Sabor: Floral, com notas de jasmim e frutas cítricas</p>
+                        <input type="number" id="quantidade" name="quantidade" min="1">
+                        <button type="submit">Adicionar ao Carrinho</button>
+                        <button id="open_converter_6" data_moeda="USD" data_preco="80.00">Converter Moeda</button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </section>
+
+    <div id="converter-popup" class='popup' style="display: none;">
+        <form class="conversao_form">
+            <label for="valor">Valor:</label>
+            <input type="number" step="0.01" name="valor" required>
+            <br><br>
+            <label for="moeda_origem">Moeda de Origem:</label>
+            <select name="moeda_origem" required>
+                <option value="USD">USD - Dólar Americano</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="BTC">BTC - Bitcoin</option>
+            </select>
+            <br><br>
+            <input type="button" value="Converter" id="convert-button">
+        </form>
+    </div>
+    
+    <script>
+        const openButtons = document.querySelectorAll('[id^="open_converter_"]');
+        const converterPopup = document.getElementById('converter-popup');
+        const valorInput = document.getElementById('valor');
+        openButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const preco = parseFloat(button.getAttribute('data-preco'));
+
+                if (!isNaN(preco)) {
+                    valorInput.value = preco.toFixed(2);
+                    converterPopup.style.display = 'block';
+                } else {
+                    alert('Preço inválido para conversão.');
+                }
+            });
+        });
+
+       
+    </script>
 </body>
     <footer>© 2023 Venda de Grãos de Café</footer>
 </html>
