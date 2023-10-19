@@ -4,7 +4,7 @@
     <title>Coffe Beans</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <script src="static/script.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                         <p class="descricao">Taste: Smooth, with notes of fruit, nuts and chocolate</p>
                         <input type="number" id="quantidade1" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_1" data_moeda="USD" data_preco="30.00">Convert Currency</button>
+                        <button type="button" id="open_converter_1" data_moeda="USD" data-preco="30.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
@@ -43,7 +43,7 @@
                         <p class="descricao">Taste: Strong and bitter, with earthy notes</p>
                         <input type="number" id="quantidade2" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_2" data_moeda="USD" data_preco="25.00">Convert Currency</button>
+                        <button type="button" id="open_converter_2" data_moeda="USD" data-preco="25.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
@@ -133,27 +133,7 @@
         </form>
     </div>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const openButtons = document.querySelectorAll('[id^="open_converter_"]');
-            const converterPopup = document.getElementById('converter-popup');
-            const valorInput = document.getElementById('valor');
-            openButtons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    console.log('Botão clicado:', button); // Adicione esta linha para depuração
-                    const preco = parseFloat(button.getAttribute('data-preco'));
-                    console.log('Preço:', preco); // Adicione esta linha para depuração
-    
-                    if (!isNaN(preco)) {
-                        valorInput.value = preco.toFixed(2);
-                        converterPopup.style.display = 'block';
-                    } else {
-                        alert('Preço inválido para conversão.');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     
 </body>
     <footer>© 2023 Sale of Coffee Beans</footer>
