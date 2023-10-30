@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Coffe Beans</title>
+    <title>Coffee Beans</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
     <script src="static/script.js"></script>
@@ -14,127 +15,109 @@
         <h2>Available Products</h2>
     </div>
 
+    <select id="selectmoeda" style="position: absolute; top: 10px; left: 10px;">
+        <option value="BRL">Real (R$)</option>
+        <option value="USD">Dólar Americano (USD)</option>
+        <option value="EUR">Euro (EUR)</option>
+        <option value="BTC">Bitcoin (BTC)</option>
+    </select>
+
     <section class="principal">
-        <div class="produto">
+        <div class="produto" data-preco-original="30.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Arabica" value="1">
-                <input type="hidden" name="preco" value="30.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="30.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                        <h3>Grão de Café Arábica - R$ 30,00/kg</h3>
-                        <p class="descricao">Taste: Smooth, with notes of fruit, nuts and chocolate</p>
+                        <h3 id="titulo_produto_1">Arabica Coffee Bean - R$ 30.00/kg</h3>
+                        <p class="descricao">Taste: Smooth, with notes of fruit, nuts, and chocolate</p>
                         <input type="number" id="quantidade1" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button type="button" id="open_converter_1" data_moeda="USD" data-preco="30.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-preco-original="25.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Robusta" value="1">
-                <input type="hidden" name="preco" value="25.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="25.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Robusta" width="250px">
-                        <h3>Grão de Café Robusta - R$ 25,00/kg</h3>
+                        <h3 id="titulo_produto_2">Robusta Coffee Bean - R$ 25.00/kg</h3>
                         <p class="descricao">Taste: Strong and bitter, with earthy notes</p>
                         <input type="number" id="quantidade2" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button type="button" id="open_converter_2" data_moeda="USD" data-preco="25.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-preco-original="60.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Kona" value="1">
-                <input type="hidden" name="preco" value="60.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="60.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Kona" width="250px">
-                        <h3>Grão de Café Kona - R$ 60,00/kg</h3>
+                        <h3 id="titulo_produto_3">Kona Coffee Bean - R$ 60.00/kg</h3>
                         <p class="descricao">Taste: Smooth, with fruity and floral notes</p>
                         <input type="number" id="quantidade3" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_3" data_moeda="USD" data_preco="60.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-preco-original="70.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Blue" value="1">
-                <input type="hidden" name="preco" value="70.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="70.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Blue Mountain" width="250px">
-                        <h3>Grão de Café Blue Mountain - R$ 70,00/kg</h3>
+                        <h3 id="titulo_produto_4">Blue Mountain Coffee Bean - R$ 70.00/kg</h3>
                         <p class="descricao">Taste: Smooth, with notes of nuts and citrus fruits</p>
                         <input type="number" id="quantidade4" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_4" data_moeda="USD" data_preco="70.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-preco-original="35.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Bourbon" value="1">
-                <input type="hidden" name="preco" value="35.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="35.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Bourbon" width="250px">
-                        <h3>Grão de Café Bourbon - R$ 35,00/kg</h3>
-                        <p class="descricao">Taste: Complex, with notes of caramel, fruits and spices</p>
+                        <h3 id="titulo_produto_5">Bourbon Coffee Bean - R$ 35.00/kg</h3>
+                        <p class="descricao">Taste: Complex, with notes of caramel, fruits, and spices</p>
                         <input type="number" id="quantidade5" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_5" data_moeda="USD" data_preco="35.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
-        <div class="produto">
+
+        <div class="produto" data-preco-original="80.00">
             <form action="adicionar_carrinho" method="POST">
-                <input type="hidden" name="Geisha" value="1">
-                <input type="hidden" name="preco" value="80.00">
+                <input type="hidden" name="moeda" value="BRL">
+                <input type="hidden" name="preco_reais" value="80.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Geisha" width="250px">
-                        <h3>Grão de Café Geisha - R$ 80,00/kg</h3>
+                        <h3 id="titulo_produto_6">Geisha Coffee Bean - R$ 80.00/kg</h3>
                         <p class="descricao">Taste: Floral, with notes of jasmine and citrus fruits</p>
                         <input type="number" id="quantidade6" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
-                        <button id="open_converter_6" data_moeda="USD" data_preco="80.00">Convert Currency</button>
                     </li>
                 </ul>
             </form>
         </div>
     </section>
-
-    <div id="converter-popup" class='popup' style="display: none;">
-        <form class="conversao_form">
-            <label for="valor">Valor:</label>
-            <input type="number" step="0.01" name="valor" required>
-            <br><br>
-            <label for="moeda_origem">Moeda de Origem:</label>
-            <select name="moeda_origem" required>
-                <option value="USD">USD - Dólar Americano</option>
-                <option value="EUR">EUR - Euro</option>
-                <option value="BTC">BTC - Bitcoin</option>
-            </select>
-            <br><br>
-            <input type="button" value="Converter" id="convert-button">
-        </form>
-    </div>
-    
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    
 </body>
-    <footer>© 2023 Sale of Coffee Beans</footer>
 </html>

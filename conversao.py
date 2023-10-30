@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, jsonify
 
 app = Flask(__name__, template_folder='templates')
 
@@ -7,13 +7,26 @@ app = Flask(__name__, template_folder='templates')
 @app.route('/adicionar_carrinho', methods=['GET', 'POST'])
 def adicionar_carrinho():
     qtd = None
-    preco = None
+    preco_em_reais = None
+    moeda = None
+    dolar_real = cotacao_dolar_real()
+    euro_real = cotacao_euro_real()
+    bitcoin_real = cotacao_bitcoin_real()
     if request.method == 'POST':
-        preco = float(request.form['preco'])
+        moeda = request.form['moeda']
+        preco_em_reais = float(request.form['preco_reais'])
         qtd = int(request.form.get('quantidade'))
 
-    return render_template('home.html', preco=preco, qtd=qtd)
+    return render_template('home.html', preco_em_reais=preco_em_reais, qtd=qtd, moeda=moeda, dolar_real=dolar_real, euro_real=euro_real, bitcoin_real=bitcoin_real)
 
+@app.route('/taxas_cambio', methods=['GET'])
+def taxas_cambio():
+    taxas = {
+        'USD': cotacao_dolar_real(),
+        'EUR': cotacao_euro_real(),
+        'BTC': cotacao_bitcoin_real()
+    }
+    return jsonify(taxas)
 
 @app.route('/conversao', methods=['GET', 'POST'])
 def index():

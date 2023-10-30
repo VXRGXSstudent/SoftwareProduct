@@ -15,6 +15,12 @@ body {
     text-align: center;
 }
 
+.seletor-meoda {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 h1 {
     font-family: "Russo One", sans-serif;
     background: #25CC0F;
@@ -63,33 +69,6 @@ ul {
     width: 500px;
 }
 
-#converter-popup {
-    display: none;
-    font-family: "Russo One", sans-serif;
-    background-color: #eaedeef5;
-    color: #365fa0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    padding-bottom: 70px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.7);
-}
-
-
-form.conversao_form {
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px #365fa0;
-    max-width: 100%; 
-    border-radius: 5px;
-
-}
 
 * {
     scrollbar-width: thin;
