@@ -2,35 +2,67 @@
 <html>
 
 <head>
+    <!-- Título da página -->
     <title>Coffee Beans</title>
+
+    <!-- Inclusão do arquivo de estilo -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Ícone da página -->
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+
+    <!-- Inclusão do arquivo de script -->
     <script src="static/script.js"></script>
 </head>
 
 <body>
+    <!-- Cabeçalho da página -->
     <div class="titulo">
         <h1>Coffee Beans</h1>
         <p>Welcome to our online coffee bean store!</p>
         <h2>Available Products</h2>
     </div>
 
-    <select id="selectmoeda" style="position: absolute; top: 10px; left: 10px;">
-        <option value="BRL">Real (R$)</option>
+    <!-- Seleção de moeda -->
+    <select class="selectmoeda" id="selectmoeda">
+        <option value="BRL">Real (BRL)</option>
         <option value="USD">Dólar Americano (USD)</option>
         <option value="EUR">Euro (EUR)</option>
         <option value="BTC">Bitcoin (BTC)</option>
     </select>
 
+    <!-- Ícone do carrinho -->
+    <div class="cart-icon" onclick="abrirCarrinho(true)">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" class="cart">
+            <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c-2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+        </svg>
+    </div>
+
+    <!-- Sidebar do carrinho -->
+    <section class="carrinho-sidebar" id="carrinho-sidebar">
+        <h2>Cart</h2>
+        <ul id="carrinho-lista">
+            <!-- Itens do carrinho serão adicionados dinamicamente aqui -->
+        </ul>
+        <p id="total-carrinho">Total: <span id="valor-total">0.00</span></p>
+        <!-- Botão para limpar itens do carrinho -->
+        <button id="limpar-carrinho" onclick="limparCarrinho()">Clear Cart</button>
+    </section>
+
+    <!-- Seção principal com produtos -->
     <section class="principal">
-        <div class="produto" data-preco-original="30.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 1 -->
+        <div class="produto" data-produto-id="1" data-preco-original="30.00">
+            <form class="form_produto_1">
+                <!-- Campos ocultos para armazenar dados do produto -->
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="30.00">
+
+                <!-- Conteúdo do produto -->
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Arábica" width="250px">
-                        <h3 id="titulo_produto_1">Arabica Coffee Bean - R$ 30.00/kg</h3>
+                        <h3 id="titulo_produto_1">Arabica Coffee Bean - 30.00 BRL</h3>
                         <p class="descricao">Taste: Smooth, with notes of fruit, nuts, and chocolate</p>
                         <input type="number" id="quantidade1" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -39,14 +71,15 @@
             </form>
         </div>
 
-        <div class="produto" data-preco-original="25.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 2 -->
+        <div class="produto" data-produto-id="2" data-preco-original="25.00">
+            <form>
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="25.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Robusta" width="250px">
-                        <h3 id="titulo_produto_2">Robusta Coffee Bean - R$ 25.00/kg</h3>
+                        <h3 id="titulo_produto_2">Robusta Coffee Bean - 25.00 BRL</h3>
                         <p class="descricao">Taste: Strong and bitter, with earthy notes</p>
                         <input type="number" id="quantidade2" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -55,14 +88,15 @@
             </form>
         </div>
 
-        <div class="produto" data-preco-original="60.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 3 -->
+        <div class="produto" data-produto-id="3" data-preco-original="60.00">
+            <form>
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="60.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Kona" width="250px">
-                        <h3 id="titulo_produto_3">Kona Coffee Bean - R$ 60.00/kg</h3>
+                        <h3 id="titulo_produto_3">Kona Coffee Bean - 60.00 BRL</h3>
                         <p class="descricao">Taste: Smooth, with fruity and floral notes</p>
                         <input type="number" id="quantidade3" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -71,14 +105,15 @@
             </form>
         </div>
 
-        <div class="produto" data-preco-original="70.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 4 -->
+        <div class="produto" data-produto-id="4" data-preco-original="70.00">
+            <form>
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="70.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Blue Mountain" width="250px">
-                        <h3 id="titulo_produto_4">Blue Mountain Coffee Bean - R$ 70.00/kg</h3>
+                        <h3 id="titulo_produto_4">Blue Mountain Coffee Bean - 70.00 BRL</h3>
                         <p class="descricao">Taste: Smooth, with notes of nuts and citrus fruits</p>
                         <input type="number" id="quantidade4" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -87,14 +122,15 @@
             </form>
         </div>
 
-        <div class="produto" data-preco-original="35.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 5 -->
+        <div class="produto" data-produto-id="5" data-preco-original="35.00">
+            <form>
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="35.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Bourbon" width="250px">
-                        <h3 id="titulo_produto_5">Bourbon Coffee Bean - R$ 35.00/kg</h3>
+                        <h3 id="titulo_produto_5">Bourbon Coffee Bean - 35.00 BRL</h3>
                         <p class="descricao">Taste: Complex, with notes of caramel, fruits, and spices</p>
                         <input type="number" id="quantidade5" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -103,14 +139,15 @@
             </form>
         </div>
 
-        <div class="produto" data-preco-original="80.00">
-            <form action="adicionar_carrinho" method="POST">
+        <!-- Produto 6 -->
+        <div class="produto" data-produto-id="6" data-preco-original="80.00">
+            <form>
                 <input type="hidden" name="moeda" value="BRL">
                 <input type="hidden" name="preco_reais" value="80.00">
                 <ul>
                     <li>
                         <img src="static/coffe.jpg" alt="Grão de Café Geisha" width="250px">
-                        <h3 id="titulo_produto_6">Geisha Coffee Bean - R$ 80.00/kg</h3>
+                        <h3 id="titulo_produto_6">Geisha Coffee Bean - 80.00 BRL</h3>
                         <p class="descricao">Taste: Floral, with notes of jasmine and citrus fruits</p>
                         <input type="number" id="quantidade6" name="quantidade" min="1">
                         <button type="submit">Add to Cart</button>
@@ -119,5 +156,7 @@
             </form>
         </div>
     </section>
+
 </body>
+
 </html>
